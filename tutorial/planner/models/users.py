@@ -3,30 +3,36 @@ from typing import Optional, List
 
 from models.events import Event
 
+
 class User(BaseModel):
     email: EmailStr
     password: str
     events: Optional[List[Event]]
-    
+
     class Config:
         schema_extra = {
             "example": {
-                "email": djangodaniel07@gmail.com,
-                "username": "strong!!!",
+                "email": "djangodaniel07@gmail.com",
+                "password": "strong!!!",
                 "events": [],
-                }
             }
+        }
 
 
 class UserSignIn(BaseModel):
     email: EmailStr
     password: str
-    
+
     class Config:
         schema_extra = {
             "example": {
-                "email": djangodaniel97@gmail.com,
+                "email": "djangodaniel07@gmail.com",
                 "password": "strong!!!",
-                "events": []
+                "events": [],
             }
         }
+
+
+class NewUser(User):
+    email: str
+    password: str
